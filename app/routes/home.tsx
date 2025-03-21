@@ -1,13 +1,13 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import React from "react";
+import ProductList from "./ProductList";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+const Home: React.FC = () => {
+  return (
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">Danh sách sản phẩm</h1>
+      <ProductList />
+    </div>
+  );
+};
 
-export default function Home() {
-  return <Welcome />;
-}
+export default Home;
