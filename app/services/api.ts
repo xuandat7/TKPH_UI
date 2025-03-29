@@ -41,3 +41,16 @@ export const getStatistics = async (productId: number) => {
   const res = await fetch(`${API_URL}/statistics/product/${productId}`);
   return res.json();
 };
+
+export const trainModel = async (model: string): Promise<string[]> => {
+  const res = await fetch(`${API_URL}/ml/train`);
+  return res.json().then((data) => data.logs);
+};
+
+export const predictComment = async (text: string, model: string): Promise<string> => {
+  const res = await fetch(`${API_URL}/ml/predict?text=${encodeURIComponent(text)}`);
+  return res.json().then((data) => data.result);
+};
+
+
+
